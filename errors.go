@@ -22,10 +22,7 @@ var (
 
 // Normalize the given error.
 func normalizeError(err error) error {
-	if err, ok := err.(*url.Error); ok {
-		return urlError(err)
-	}
-
+	// need to return the original error, no need to obfuscate it since then we cannot see which part of the stack has been erroring out
 	return err
 }
 
